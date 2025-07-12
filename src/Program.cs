@@ -12,8 +12,6 @@ static class Program
 
         if (!game.Installed) { Console.WriteLine("Minecraft: Bedrock Edition isn't installed!"); return; }
 
-        if (!args.Any()) { game.Launch(); return; }
-
         List<Library> libraries = [];
         foreach (var arg in args)
         {
@@ -22,6 +20,6 @@ static class Program
             libraries.Add(library);
         }
 
-        game.Loader.Launch(libraries);
+        game.Terminate(); game.Loader.Launch(libraries);
     }
 }
